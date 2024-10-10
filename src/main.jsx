@@ -7,7 +7,6 @@ import Testimonios from './Components/Testimonios.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
-    <Testimonios />
 
   </StrictMode>,
 )

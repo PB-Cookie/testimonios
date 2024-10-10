@@ -1,39 +1,57 @@
 import * as React from 'react';
+import { useState } from "react"
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
+import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
+const Testimonios = ({ imgurl, nombre, pais, profesion, empresa, descripcion, alt }) => {
+  const [liked, setLiked] = useState(false);
 
-function Testimonios() {
-
+  const handleLike = () => {
+    setLiked (!liked);
+  }
   return (
-    
 
-<Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ width: 500 }}>
       <CardMedia
-        sx={{ height: 140 }}
-        image="/static/images/cards/contemplative-reptile.jpg"
+        sx={{ height: 300 }}
+        image={imgurl}
         title="green iguana"
+        alt={alt}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Lizard
+          {nombre} en {pais}
+        </Typography>
+        <Typography gutterBottom variant="h6" component="div">
+          {profesion} en {empresa}
         </Typography>
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+          {descripcion} {/*para poder hacer la descripción personalizada si queremos */}
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut 
+          enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+          nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+          qui officia deserunt mollit anim id est laborum.
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+        
+        <IconButton onClick={handleLike}>
+        {liked ? <FavoriteIcon color='error'></FavoriteIcon> : <FavoriteBorder></FavoriteBorder>}
+        </IconButton>
       </CardActions>
     </Card>
-    
+
   )
 }
 
