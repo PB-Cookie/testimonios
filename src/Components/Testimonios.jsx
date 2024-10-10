@@ -21,7 +21,7 @@ const Testimonios = ({ imgurl, nombre, pais, profesion, empresa, descripcion, al
 
     <Card sx={{ width: 500 }}>
       <CardMedia
-        sx={{ height: 300 }}
+        sx={{ height: 250 }}
         image={imgurl}
         title="green iguana"
         alt={alt}
