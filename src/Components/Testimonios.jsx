@@ -11,21 +11,27 @@ import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
-import {MyFavorite, MyFavoriteBorder, CarlosACM} from 'milibreria'
+import {MyFavorite, MyFavoriteBorder, CarlosACM, MyButton} from 'milibreria'
+import { Container } from '@mui/material';
 
-const Testimonios = ({ imgurl, nombre, pais, profesion, empresa, descripcion, alt }) => {
+const Testimonios = ({ titulo, imgurl, nombre, pais, profesion, empresa, descripcion, alt, linkGoogle, linkFacebook, linkGithub, linkYoutube}) => {
   const [liked, setLiked] = useState(false);
+  const [width, setwidth] = useState(500);
+  const [height, setheight] = useState(250);
 
   const handleLike = () => {
     setLiked (!liked);
   }
+  const handleSize = () => {
+    {width == 750? setwidth(500) & setheight(250) : setwidth(750) & setheight(600)}
+  }
   return (
 
-    <Card sx={{ width: 500 }}>
+    <Card sx={{ width: {width} }}>
       <CardMedia
-        sx={{ height: 250 }}
+        sx={{ height: {height} }}
         image={imgurl}
-        title="green iguana"
+        title={titulo}
         alt={alt}
       />
       <CardContent>
@@ -49,8 +55,12 @@ const Testimonios = ({ imgurl, nombre, pais, profesion, empresa, descripcion, al
       <CardActions>
         
         <IconButton onClick={handleLike}>
-        {liked ? <FavoriteIcon color='error'></FavoriteIcon> : <FavoriteBorder></FavoriteBorder>}
+        {liked ? <MyFavorite color='red'></MyFavorite> : <MyFavoriteBorder></MyFavoriteBorder>}
         </IconButton>
+        {width == 750? 
+        <MyButton text='REDUCIR' onClick={handleSize}></MyButton> : 
+        <MyButton text='AMPLIAR' onClick={handleSize}></MyButton>}
+        <CarlosACM linkfacebook={linkFacebook} linkgithub={linkGithub} linkyoutube={linkYoutube} linkgoogle={linkGoogle}></CarlosACM>
       </CardActions>
     </Card>
 
