@@ -49,7 +49,7 @@ const Testimonios = ({ imgurl, nombre, pais, profesion, empresa, descripcion, al
       <CardActions>
         
         <IconButton onClick={handleLike}>
-        {liked ? <MyFavorite/> : <FavoriteBorder></FavoriteBorder>}
+        {liked ? <FavoriteIcon color='error'></FavoriteIcon> : <FavoriteBorder></FavoriteBorder>}
         </IconButton>
       </CardActions>
     </Card>
