@@ -11,6 +11,8 @@ import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
+import {MyFavorite, MyFavoriteBorder, CarlosACM} from 'milibreria'
+
 const Testimonios = ({ imgurl, nombre, pais, profesion, empresa, descripcion, alt }) => {
   const [liked, setLiked] = useState(false);
 
@@ -47,7 +49,7 @@ const Testimonios = ({ imgurl, nombre, pais, profesion, empresa, descripcion, al
       <CardActions>
         
         <IconButton onClick={handleLike}>
-        {liked ? <FavoriteIcon color='error'></FavoriteIcon> : <FavoriteBorder></FavoriteBorder>}
+        {liked ? <MyFavorite/> : <FavoriteBorder></FavoriteBorder>}
         </IconButton>
       </CardActions>
     </Card>
